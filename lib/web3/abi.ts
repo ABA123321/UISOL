@@ -1,25 +1,29 @@
 /**
- * 合约 ABI 占位（演示版）
+ * 主网合约 ABI
  *
- * 原本这里通过 `../../../artifacts/contracts/*.sol/*.json` 引入 Hardhat 编译产物，
- * 但本仓库（前端 Demo）并不包含合约项目，因此运行时编译会因找不到 JSON 文件而失败。
- *
- * - 演示模式下（`NEXT_PUBLIC_RPC_URL` / `NEXT_PUBLIC_*_ADDRESS` 未配置时），
- *   `lib/web3/addresses.ts` 中 `isWeb3Configured()` 返回 false，
- *   `getReadContracts / getWriteContracts` 不会被实际触发，因此空 ABI 不影响 UI 浏览。
- * - 若需启用真实链上交互，请把对应合约的 ABI 数组填入下方各字段。
+ * 来源：BSC mainnet 已验证合约的 metadata（Sourcify full match），
+ * 同步至 `lib/web3/abi-json/*.json`，由 Next.js（`resolveJsonModule: true`）
+ * 直接 import。如需更新合约，请把对应 ABI JSON 替换到 `abi-json/`。
  */
+import referralRegistryAbi from "./abi-json/referralRegistry.json"
+import staminaAbi from "./abi-json/stamina.json"
+import marketplaceAbi from "./abi-json/marketplace.json"
+import gameAbi from "./abi-json/game.json"
+import materialsAbi from "./abi-json/materials.json"
+import characterNftAbi from "./abi-json/characterNft.json"
+import adventAbi from "./abi-json/advent.json"
+
 export const ABI = {
-  referralRegistry: [] as any[],
-  stamina: [] as any[],
-  marketplace: [] as any[],
-  game: [] as any[],
-  materials: [] as any[],
-  characterNft: [] as any[],
-  advent: [] as any[],
+  referralRegistry: referralRegistryAbi as any[],
+  stamina: staminaAbi as any[],
+  marketplace: marketplaceAbi as any[],
+  game: gameAbi as any[],
+  materials: materialsAbi as any[],
+  characterNft: characterNftAbi as any[],
+  advent: adventAbi as any[],
 } as const
 
-// Minimal ERC20 ABI for USDT
+// USDT (BEP20) 最小化 ABI
 export const ERC20_ABI = [
   "function name() view returns (string)",
   "function symbol() view returns (string)",

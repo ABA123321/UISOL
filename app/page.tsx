@@ -286,7 +286,7 @@ export default function LandingPage() {
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-5 py-8 text-center text-xs text-muted-foreground sm:px-6 sm:text-left sm:flex-row">
           <div className="flex items-center gap-2">
             <Zap className="size-3.5 text-primary" aria-hidden />
-            <span className="font-mono">Rune Abyss · 演示版（前端 Demo，无真实链上交互）</span>
+            <span className="font-mono">Rune Abyss · 主网已上线（BSC · 链上数据实时读取）</span>
           </div>
           <span>© 2026 · BSC</span>
         </div>
